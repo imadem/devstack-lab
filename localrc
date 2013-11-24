@@ -1,0 +1,80 @@
+# branches
+CEILOMETER_BRANCH=stable/havana
+CEILOMETERCLIENT_BRANCH=stable/havana
+CINDER_BRANCH=stable/havana
+CINDERCLIENT_BRANCH=stable/havana
+GLANCE_BRANCH=stable/havana
+GLANCECLIENT_BRANCH=stable/havana
+HEAT_BRANCH=stable/havana
+HEATCLIENT_BRANCH=stable/havana
+HORIZON_BRANCH=stable/havana
+IRONIC_BRANCH=stable/havana
+IRONICCLIENT_BRANCH=stable/havana
+KEYSTONE_BRANCH=stable/havana
+KEYSTONECLIENT_BRANCH=stable/havana
+NOVA_BRANCH=stable/havana
+NOVACLIENT_BRANCH=stable/havana
+OPENSTACKCLIENT_BRANCH=stable/havana
+OSLOCFG_BRANCH=stable/havana
+OSLOMSG_BRANCH=stable/havana
+PBR_BRANCH=stable/havana
+NEUTRON_BRANCH=stable/havana
+NEUTRONCLIENT_BRANCH=stable/havana
+SWIFT_BRANCH=stable/havana
+SWIFT3_BRANCH=stable/havana
+SWIFTCLIENT_BRANCH=stable/havana
+TEMPEST_BRANCH=stable/havana
+BM_IMAGE_BUILD_BRANCH=stable/havana
+BM_POSEUR_BRANCH=stable/havana
+NOVNC_BRANCH=stable/havana
+RYU_BRANCH=stable/havana
+SPICE_BRANCH=stable/havana
+TROVE_BRANCH=stable/havana
+TROVECLIENT_BRANCH=stable/havana
+WSME_BRANCH=stable/havana
+PECAN_BRANCH=stable/havana
+
+HOST_IP=192.168.27.100
+
+# ce uporabljate 32bitni OS, lahko zaganjate le 32bitne virtualce
+# use 32bit Cirros
+#IMAGE_URLS="http://cdn.download.cirros-cloud.net/0.3.1/cirros-0.3.1-i386-disk.img"
+
+# Enable Neutron
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service q-l3
+enable_service q-meta
+enable_service neutron
+
+# Optional components: Load Balancing, Firewall, VPN
+# neutron LBaaS 
+#enable_service q-lbaas 
+# neutron FWaaS 
+#enable_service q-fwaas 
+# neutron VPNaaS 
+#enable_service q-vpn 
+
+# swift: Object Storage 
+#enable_service s-proxy s-object s-container s-account 
+# ce potrebujemo vec prostora za slike (images), default je 1GB 
+#SWIFT_LOOPBACK_DISK_SIZE=10000000
+
+# passwords
+DATABASE_PASSWORD=password
+RABBIT_PASSWORD=password
+SERVICE_TOKEN=password
+SERVICE_PASSWORD=password
+ADMIN_PASSWORD=password
+
+# cinder: size of virtual drive for Block Storage
+# VOLUME_BACKING_FILE_SIZE=5130M
+
+# Enable Logging
+SCREEN_LOGDIR=/opt/stack/logs
+
+# ce zelite delati OFFLINE - to dela samo po tem, ko ste enkrat ze uspesno zagnali stack.sh
+# s tem se uporabi v cache-u zbrane pakete (/var/cache/apt in /var/cache/pip, nekaj stvari v devstack files direktoriju
+#OFFLINE=True
