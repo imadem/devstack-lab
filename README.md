@@ -1,7 +1,7 @@
 # DevStack all-in-one with Vagrant and Shell provisioning
 
 
-Based on https://github.com/lorin/devstack-vm, but since Ansible is not Windows friendly, I replaced it with Shell provisioning. 
+Based on https://github.com/lorin/devstack-vm, but since Ansible is not Windows friendly, I replaced it with Shell provisioning and use Ubuntu 12.04 LTS. 
 
 Some settings don't survive reboot (intentionally, but that could change if needed):
   
@@ -9,6 +9,3 @@ Some settings don't survive reboot (intentionally, but that could change if need
     sudo ovs-vsctl add-port br-ex eth2
     sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-
-  
-  
