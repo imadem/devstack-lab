@@ -40,10 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # enable eth2
   config.vm.provision :shell, :inline =>  "ip link set dev eth2 up"
   # run stack.sh as vagrant user
-  #config.vm.provision :shell, :inline => "cd devstack; sudo -u vagrant env HOME=/home/vagrant ./stack.sh"
+  config.vm.provision :shell, :inline => "cd devstack; sudo -u vagrant env HOME=/home/vagrant ./stack.sh"
   # add eth2 to br-ex
-  #config.vm.provision :shell, :inline => "ovs-vsctl add-port br-ex eth2"
+  config.vm.provision :shell, :inline => "ovs-vsctl add-port br-ex eth2"
   # Allow VMs to connect to the internet - configures NAT on eth0 adapter
-  #config.vm.provision :shell, :inline => "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
+  config.vm.provision :shell, :inline => "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
 
 end
