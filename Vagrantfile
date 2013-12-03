@@ -7,6 +7,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Use Ubuntu 12.04 64 bit
   config.vm.box = "precise64"
+  
+  config.vm.hostname = "devstack"
+  
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
@@ -33,14 +36,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # clone devstack as vagrant user
   config.vm.provision :shell, :inline =>  "git clone -b stable/havana git://git.openstack.org/openstack-dev/devstack"
   # copy localrc to devstack directory, change ownership of devstack files
-  config.vm.provision :shell, :inline =>  "cp /vagrant/localrc /home/vagrant/devstack/localrc; chown -R vagrant:vagrant devstack"  
+  config.vm.provision :shell, :inline =>  "cp /vagrant/localrc /home/vagrant/devstack/localrc; sed -i 's/\r$//' /home/vagrant/devstack/localrc; chown -R vagrant:vagrant devstack"  
   # enable eth2
   config.vm.provision :shell, :inline =>  "ip link set dev eth2 up"
   # run stack.sh as vagrant user
-  config.vm.provision :shell, :inline => "cd devstack; sudo -u vagrant env HOME=/home/vagrant ./stack.sh"
+  #config.vm.provision :shell, :inline => "cd devstack; sudo -u vagrant env HOME=/home/vagrant ./stack.sh"
   # add eth2 to br-ex
-  config.vm.provision :shell, :inline => "ovs-vsctl add-port br-ex eth2"
+  #config.vm.provision :shell, :inline => "ovs-vsctl add-port br-ex eth2"
   # Allow VMs to connect to the internet - configures NAT on eth0 adapter
-  config.vm.provision :shell, :inline => "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
+  #config.vm.provision :shell, :inline => "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
 
 end
