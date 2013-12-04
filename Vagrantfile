@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :inline =>  "apt-get -y install git"
   # clone devstack as vagrant user
   config.vm.provision :shell, :inline =>  "git clone -b stable/havana git://git.openstack.org/openstack-dev/devstack"
-  # copy localrc to devstack directory, change ownership of devstack files
+  # copy localrc to devstack directory, replace Windows CRLF line endings with Linux's LF, change ownership of devstack files
   config.vm.provision :shell, :inline =>  "cp /vagrant/localrc /home/vagrant/devstack/localrc; sed -i 's/\r$//' /home/vagrant/devstack/localrc; chown -R vagrant:vagrant devstack"  
   # enable eth2
   config.vm.provision :shell, :inline =>  "ip link set dev eth2 up"
