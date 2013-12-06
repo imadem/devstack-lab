@@ -26,3 +26,12 @@ After install:
 	The password: password
 	This is your host ip: 192.168.27.100
 
+You can SSH on DevStack with:
+	
+	vagrant ssh
+	
+DevStack configuration details are in `localrc`, don't forget that this file is copied to /home/vagrant/devstack on VM, so if you want to change DevStack's configuration, you should do one of the folowing:
+
+* change `localrc` in this project's folder, destroy VM (`vagrant destroy`), rebuild machine again (`vagrant up`) OR
+* change `localrc` in VM's /home/vagrant/devstack, stop DevStack with `./unstack.sh`, reinstall DevStack with `./stack.sh`
+
