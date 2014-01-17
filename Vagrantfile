@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Use Ubuntu 12.04 64 bit
   config.vm.box = "precise64"
   
-  config.vm.hostname = "devstack"
+  config.vm.hostname = "matjaz"
   
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -26,13 +26,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   	#vb.gui = true
   
     # Set proper amount of RAM for a box, DevStack needs min. 1.5 GB
-	vb.customize ["modifyvm", :id, "--memory", 2048]
+	vb.customize ["modifyvm", :id, "--memory", 2500]
 	# eth2 must be in promiscuous mode for floating IPs to be accessible
 	vb.customize ["modifyvm", :id, "--nicpromisc3", "allow-all"]
   end
    
+  # change default US Ubuntu mirror to our local mirror at Arnes (Slovenia)
+  config.vm.provision :shell, :inline =>  "sed -i 's!http\://us\.archive\.ubuntu\.com/ubuntu/!http\://ftp\.arnes\.si/pub/mirrors/ubuntu/!g;s!http\://security\.ubuntu\.com/ubuntu!http\://ftp\.arnes\.si/pub/mirrors/ubuntu!g' /etc/apt/sources.list"
+  
   # install git
-  config.vm.provision :shell, :inline =>  "apt-get -y install git"
+  config.vm.provision :shell, :inline =>  "apt-get update; apt-get -y install git"
   # clone devstack as vagrant user
   config.vm.provision :shell, :inline =>  "git clone -b stable/havana git://git.openstack.org/openstack-dev/devstack"
   # copy localrc to devstack directory, replace Windows CRLF line endings with Linux's LF, change ownership of devstack files

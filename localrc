@@ -36,7 +36,6 @@ PECAN_BRANCH=stable/havana
 
 HOST_IP=192.168.27.100
 
-# ce uporabljate 32bitni OS, lahko zaganjate le 32bitne virtualce
 # use 32bit Cirros
 #IMAGE_URLS="http://cdn.download.cirros-cloud.net/0.3.1/cirros-0.3.1-i386-disk.img"
 
@@ -51,15 +50,15 @@ enable_service neutron
 
 # Optional components: Load Balancing, Firewall, VPN
 # neutron LBaaS 
-#enable_service q-lbaas 
+enable_service q-lbaas 
 # neutron FWaaS 
-#enable_service q-fwaas 
+enable_service q-fwaas 
 # neutron VPNaaS 
 #enable_service q-vpn 
 
 # swift: Object Storage 
 #enable_service s-proxy s-object s-container s-account 
-# ce potrebujemo vec prostora za slike (images), default je 1GB 
+# if you need more space for images, default is 1GB 
 #SWIFT_LOOPBACK_DISK_SIZE=10000000
 
 # passwords
@@ -75,6 +74,6 @@ ADMIN_PASSWORD=password
 # Enable Logging
 SCREEN_LOGDIR=/opt/stack/logs
 
-# ce zelite delati OFFLINE - to dela samo po tem, ko ste enkrat ze uspesno zagnali stack.sh
-# s tem se uporabi v cache-u zbrane pakete (/var/cache/apt in /var/cache/pip, nekaj stvari v devstack files direktoriju
+# if you want to work OFFLINE - only after already successful run of stack.sh
+# it uses cached copy (/var/cache/apt and /var/cache/pip, some other stuff in devstack directory
 #OFFLINE=True
