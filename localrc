@@ -1,43 +1,43 @@
 # branches
-CEILOMETER_BRANCH=stable/havana
-CEILOMETERCLIENT_BRANCH=stable/havana
-CINDER_BRANCH=stable/havana
-CINDERCLIENT_BRANCH=stable/havana
-GLANCE_BRANCH=stable/havana
-GLANCECLIENT_BRANCH=stable/havana
-HEAT_BRANCH=stable/havana
-HEATCLIENT_BRANCH=stable/havana
-HORIZON_BRANCH=stable/havana
-IRONIC_BRANCH=stable/havana
-IRONICCLIENT_BRANCH=stable/havana
-KEYSTONE_BRANCH=stable/havana
-KEYSTONECLIENT_BRANCH=stable/havana
-NOVA_BRANCH=stable/havana
-NOVACLIENT_BRANCH=stable/havana
-OPENSTACKCLIENT_BRANCH=stable/havana
-OSLOCFG_BRANCH=stable/havana
-OSLOMSG_BRANCH=stable/havana
-PBR_BRANCH=stable/havana
-NEUTRON_BRANCH=stable/havana
-NEUTRONCLIENT_BRANCH=stable/havana
-SWIFT_BRANCH=stable/havana
-SWIFT3_BRANCH=stable/havana
-SWIFTCLIENT_BRANCH=stable/havana
-TEMPEST_BRANCH=stable/havana
-BM_IMAGE_BUILD_BRANCH=stable/havana
-BM_POSEUR_BRANCH=stable/havana
-NOVNC_BRANCH=stable/havana
-RYU_BRANCH=stable/havana
-SPICE_BRANCH=stable/havana
-TROVE_BRANCH=stable/havana
-TROVECLIENT_BRANCH=stable/havana
-WSME_BRANCH=stable/havana
-PECAN_BRANCH=stable/havana
+CEILOMETER_BRANCH=stable/juno
+CEILOMETERCLIENT_BRANCH=stable/juno
+CINDER_BRANCH=stable/juno
+CINDERCLIENT_BRANCH=stable/juno
+GLANCE_BRANCH=stable/juno
+GLANCECLIENT_BRANCH=stable/juno
+HEAT_BRANCH=stable/juno
+HEATCLIENT_BRANCH=stable/juno
+HORIZON_BRANCH=stable/juno
+IRONIC_BRANCH=stable/juno
+IRONICCLIENT_BRANCH=stable/juno
+KEYSTONE_BRANCH=stable/juno
+KEYSTONECLIENT_BRANCH=stable/juno
+NOVA_BRANCH=stable/juno
+NOVACLIENT_BRANCH=stable/juno
+OPENSTACKCLIENT_BRANCH=stable/juno
+OSLOCFG_BRANCH=stable/juno
+OSLOMSG_BRANCH=stable/juno
+PBR_BRANCH=stable/juno
+NEUTRON_BRANCH=stable/juno
+NEUTRONCLIENT_BRANCH=stable/juno
+SWIFT_BRANCH=stable/juno
+SWIFT3_BRANCH=stable/juno
+SWIFTCLIENT_BRANCH=stable/juno
+TEMPEST_BRANCH=stable/juno
+BM_IMAGE_BUILD_BRANCH=stable/juno
+BM_POSEUR_BRANCH=stable/juno
+NOVNC_BRANCH=stable/juno
+RYU_BRANCH=stable/juno
+SPICE_BRANCH=stable/juno
+TROVE_BRANCH=stable/juno
+TROVECLIENT_BRANCH=stable/juno
+WSME_BRANCH=stable/juno
+PECAN_BRANCH=stable/juno
 
 HOST_IP=192.168.27.100
 
 # use 32bit Cirros
-#IMAGE_URLS="http://cdn.download.cirros-cloud.net/0.3.1/cirros-0.3.1-i386-disk.img"
+IMAGE_URLS="http://cdn.download.cirros-cloud.net/0.3.3/cirros-0.3.3-i386-disk.img"
 
 # Enable Neutron
 disable_service n-net
@@ -52,12 +52,12 @@ enable_service neutron
 # neutron LBaaS 
 enable_service q-lbaas 
 # neutron FWaaS 
-enable_service q-fwaas 
+#enable_service q-fwaas 
 # neutron VPNaaS 
 #enable_service q-vpn 
 
 # swift: Object Storage 
-#enable_service s-proxy s-object s-container s-account 
+# enable_service s-proxy s-object s-container s-account 
 # if you need more space for images, default is 1GB 
 #SWIFT_LOOPBACK_DISK_SIZE=10000000
 
