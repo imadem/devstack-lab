@@ -43,6 +43,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :inline =>  "apt-get update; apt-get -y install git"
   #install some packages, needed for standalone HEAT server (bug in install ./stack.sh script?)
   config.vm.provision :shell, :inline =>  "sudo apt-get -y install python-dev libxml2-dev libxslt1-dev libffi-dev"  
+
+  #install gettext from apt, in 14.04 it is no longer installed with pyhon packets... (if you install heat, it has this by default)
+  config.vm.provision :shell, :inline =>  "sudo apt-get -y install gettext"  
+
   # clone devstack as vagrant user (devstack branch should be in sync with the one in localrc)
   config.vm.provision :shell, :inline =>  "git clone -b stable/juno git://git.openstack.org/openstack-dev/devstack"
   # copy localrc to devstack directory, replace Windows CRLF line endings with Linux's LF, change ownership of devstack files
