@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # eth1, this will be the endpoint
   config.vm.network :private_network, ip: "192.168.27.100"
   # eth2, this will be the OpenStack "public" network, use DevStack default
-  config.vm.network :private_network, ip: " ", :netmask => "255.255.255.224", :auto_config => false
+  config.vm.network :private_network, ip: "172.24.4.225", :netmask => "255.255.255.224", :auto_config => false
 
   config.vm.provider :virtualbox do |vb|
   	# Disable headless mode, if you want to see the VBox console
