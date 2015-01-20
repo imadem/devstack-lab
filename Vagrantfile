@@ -21,13 +21,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # eth1, this will be the endpoint
   config.vm.network :private_network, ip: "192.168.27.100"
   # eth2, this will be the OpenStack "public" network, use DevStack default
-  config.vm.network :private_network, ip: "172.24.4.225", :netmask => "255.255.255.224", :auto_config => false
+  config.vm.network :private_network, ip: " ", :netmask => "255.255.255.224", :auto_config => false
 
   config.vm.provider :virtualbox do |vb|
   	# Disable headless mode, if you want to see the VBox console
   	#vb.gui = true
-  
-
     
     # Set proper amount of RAM for a box, DevStack needs min. 1.5 GB if you install only essential OpenStack services
     vb.customize ["modifyvm", :id, "--memory", 2600]
@@ -58,8 +56,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # add eth2 to br-ex
   config.vm.provision :shell, :inline => "ovs-vsctl add-port br-ex eth2"
   
-  # this should run on the host, to enable VM's internet access. For some simple use cases, it can be run on the guest.
-  # Allow VMs to connect to the internet - configures NAT on eth0 adapter
-  # config.vm.provision :shell, :inline => "iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE"
-
 end

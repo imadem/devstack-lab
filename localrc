@@ -1,34 +1,3 @@
-# branches
-CEILOMETER_BRANCH=stable/juno
-CEILOMETERCLIENT_BRANCH=stable/juno
-CINDER_BRANCH=stable/juno
-CINDERCLIENT_BRANCH=stable/juno
-GLANCE_BRANCH=stable/juno
-GLANCECLIENT_BRANCH=stable/juno
-HEAT_BRANCH=stable/juno
-HEATCLIENT_BRANCH=stable/juno
-HORIZON_BRANCH=stable/juno
-IRONIC_BRANCH=stable/juno
-IRONICCLIENT_BRANCH=stable/juno
-KEYSTONE_BRANCH=stable/juno
-KEYSTONECLIENT_BRANCH=stable/juno
-NOVA_BRANCH=stable/juno
-NOVACLIENT_BRANCH=stable/juno
-OPENSTACKCLIENT_BRANCH=stable/juno
-OSLOCFG_BRANCH=stable/juno
-OSLOMSG_BRANCH=stable/juno
-PBR_BRANCH=stable/juno
-NEUTRON_BRANCH=stable/juno
-NEUTRONCLIENT_BRANCH=stable/juno
-SWIFT_BRANCH=stable/juno
-SWIFT3_BRANCH=stable/juno
-SWIFTCLIENT_BRANCH=stable/juno
-BM_IMAGE_BUILD_BRANCH=stable/juno
-BM_POSEUR_BRANCH=stable/juno
-TROVE_BRANCH=stable/juno
-TROVECLIENT_BRANCH=stable/juno
-WSME_BRANCH=stable/juno
-PECAN_BRANCH=stable/juno
 
 HOST_IP=192.168.27.100
 
